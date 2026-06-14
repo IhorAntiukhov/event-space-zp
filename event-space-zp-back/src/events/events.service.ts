@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { Category } from "generated/prisma/enums";
-import PrismaService from "src/common/services/prisma.service";
+import { PrismaService } from "src/prisma/prisma.service";
 
 @Injectable()
 export class EventsService {

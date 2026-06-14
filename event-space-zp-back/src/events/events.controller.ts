@@ -1,6 +1,6 @@
 import { Controller, Get, Param, Query } from "@nestjs/common";
 import { EventsService } from "./events.service";
-import { GetAllEventsQueryDto } from "./dto/getAllEventsQueryDto";
+import { GetAllEventsQueryDto } from "./dto/getAllEventsQuery.dto";
 
 @Controller("events")
 export class EventsController {

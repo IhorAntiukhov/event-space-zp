@@ -6,6 +6,7 @@
 generator client {
   provider = "prisma-client"
   output   = "../generated/prisma"
+  moduleFormat = "cjs"
 }
 
 datasource db {
@@ -14,18 +15,19 @@ datasource db {
 
 model Event {
   id Int @default(autoincrement()) @id
-  createdAt DateTime @default(now())
+  createdAt DateTime @default(now()) @map("created_at")
   name String
   description String
   time DateTime
   category Category
-  userId String
+  userId String @map("user_id")
   createdBy User @relation(fields: [userId], references: [id])
   enrolledUsers UserEvent[]
 }
 
 model User {
   id String @default(uuid()) @id
+  createdAt DateTime @default(now()) @map("created_at")
   email String
   password String
   fullname String
@@ -36,8 +38,8 @@ model User {
 model UserEvent {
   user User @relation(fields: [userId], references: [id])
   event Event @relation(fields: [eventId], references: [id])
-  userId String
-  eventId Int
+  userId String @map("user_id")
+  eventId Int @map("event_id")
   @@unique([userId, eventId])
 }
 
