@@ -14,20 +14,50 @@ This is a Full-Stack application for public events in Zaporizhia. Users can crea
 ## event-space-zp-front
 
 - src/app - Only for navigation purposes. No UI or business logic at all.
-- src/features - Page-specific components, utils, hooks, API calls, stores, styles, etc.
+- src/features - Page-specific functions.
   - src/features/[page]/components
   - src/features/[page]/utils
   - src/features/[page]/hooks
   - src/features/[page]/api
   - src/features/[page]/store
   - src/features/[page]/styles
-- src/shared - Shared components, utils, hooks, API calls, stores, styles, etc.
+- src/shared - Shared functions that are used across multiple features.
   - src/shared/components
   - src/shared/utils
   - src/shared/hooks
   - src/shared/api
   - src/shared/store
   - src/shared/styles
+
+## event-space-zp-back
+
+- src/common - Shared functions and classes that are used across multiple modules.
+- src/[module] - Module-specific functions and classes.
+
+# Data model
+
+## events
+
+- id: integer
+- name: string
+- createdAt: timestamp
+- description: string
+- time: timestamp
+- category: Category
+- userId: uuid
+
+## users
+
+- id: uuid
+- email: string
+- password: string
+- fullname: string
+- createdAt: timestamp
+
+## user_event
+
+- userId: uuid
+- eventId: integer
 
 # Coding guidelines
 
